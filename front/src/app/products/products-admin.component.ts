@@ -45,14 +45,20 @@ export class ProductsAdminComponent extends BaseTableLoader implements OnInit {
   }
 
   private create(product: Product): void {
-    this.handleReload(this.productsService.create(product));
+    this.productsService.create(product).subscribe(resp => {
+      this.handleReload(this.productsService.getProducts());
+    });
   }
 
   private update(product: Product): void {
-    this.handleReload(this.productsService.update(product));
+    this.productsService.update(product).subscribe(resp => {
+      this.handleReload(this.productsService.getProducts());
+    });
   }
 
   private delete(id: number): void {
-    this.handleReload(this.productsService.delete(id));
+    this.productsService.delete(id).subscribe(resp => {
+      this.handleReload(this.productsService.getProducts());
+    });
   }
 }

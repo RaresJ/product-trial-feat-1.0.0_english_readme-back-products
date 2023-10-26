@@ -90,8 +90,6 @@ export const PRODUCT_TABLE_CONF: CrudItemOptions[] = [
     label: 'Quantity',
     columnOptions: {
       minScreenSize: ScreenWidth.small,
-    },
-    controlOptions: {
     }
   }
 
